@@ -1,0 +1,25 @@
+{
+    "name": "chuwei/cardpay",
+    "authors": [
+        {
+            "name": "zhuxishun",
+            "email": "zhuxishun@cw100.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+        "Chuwei\\Cardpay\\": "src"
+      }
+    },
+    "require": {},
+    "extra": {
+      "laravel": {
+        "providers": [
+          "Chuwei\\Cardpay\\LakalaServiceProvider"
+        ],
+        "aliases": {
+          "Lakala": "Chuwei\\Cardpay\\Facades\\Lakala"
+        }
+      }
+    }
+}
