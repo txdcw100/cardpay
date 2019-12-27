@@ -5,7 +5,7 @@ return [
 
     'table_names' => [
 
-//        'configs' => 'lakala_configs',
+        'configs' => 'lakala_configs',
 
         'logs' => 'lakala_send_logs',
 
@@ -14,11 +14,11 @@ return [
     'driver' => [
 
         'master' => [
-            'merchant_id' => '872290021025000',
-            'key_rsa_path' => storage_path('872290021025000.p12'),
-            'key_rsa_pass' => '788288',
-            'notify_url' => 'http://www.***.fun/callback',
-            'page_notify_url' => 'http://www.***.fun/callback',
+            'merchant_id' => env('LAKALA_MERCHANT_ID', '872100003015000'),
+            'key_rsa_path' => storage_path(env('LAKALA_MERCHANT_ID', '872100003015000').'.p12'),
+            'key_rsa_pass' => env('LAKALA_', '015560'),
+            'notify_url' => env('NOTIFY_URL', ''),
+            'page_notify_url' => env('RETURN_URL', ''),
         ],
 
     ]
