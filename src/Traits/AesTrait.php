@@ -24,7 +24,7 @@ trait AesTrait
         $iv = 'f96x74jh7d9q82`w';// 向量
         // 通过 第1步java demo 获取 密钥串 注意：第1步中是进行BASE64编码的，下面使用的时候需要进行BASE64解码
         $key = "Zzg3eTY1a2k2ZThwOTNhdg==";
-        $data = openssl_encrypt($string, 'AES-256-CBC', base64_decode($key), OPENSSL_RAW_DATA,$iv);
+        $data = openssl_encrypt($string, 'AES-128-CBC', base64_decode($key), OPENSSL_RAW_DATA,$iv);
         $data = base64_encode($data);
         return $data;
     }
@@ -39,7 +39,7 @@ trait AesTrait
         $iv = 'f96x74jh7d9q82`w';// 向量
         // 通过 第1步java demo 获取 密钥串 注意：第1步中是进行BASE64编码的，下面使用的时候需要进行BASE64解码
         $key = "Zzg3eTY1a2k2ZThwOTNhdg==";
-        $decrypted = openssl_decrypt(base64_decode($string), 'AES-256-CBC', base64_decode($key), OPENSSL_RAW_DATA,$iv);
+        $decrypted = openssl_decrypt(base64_decode($string), 'AES-128-CBC', base64_decode($key), OPENSSL_RAW_DATA,$iv);
         return $decrypted;
     }
 }

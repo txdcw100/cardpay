@@ -64,7 +64,7 @@ trait OrderTrait
         $params = [
             'service' => $service,
             'offlineNotifyUrl' => $this->config['notify_url'],
-            'pageNotifyUrl' => $redirectUrl,
+            'pageNotifyUrl' => $this->config['page_notify_url'],
             'clientIP' => $this->getClientIP(),
             'orderId' => $orderId,
             'orderTime' => date('YmdHis'),

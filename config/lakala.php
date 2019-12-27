@@ -18,6 +18,7 @@ return [
             'key_rsa_path' => storage_path('872290021025000.p12'),
             'key_rsa_pass' => '788288',
             'notify_url' => 'http://www.***.fun/callback',
+            'page_notify_url' => 'http://www.***.fun/callback',
         ],
 
     ]
