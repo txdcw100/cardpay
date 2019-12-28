@@ -26,8 +26,6 @@ class MercUpdate extends Controller
         $params = array_merge($params,[
             'service' => 'UpdateMercInfo',
             'outMerchantId' => $config['sub_merchant_id'],
-            'secretKey' => $this->signature([],$this->password),
-            'clientIP' => $this->getClientIP(),
         ]);
 
         $respones = $this->request($params);

@@ -25,8 +25,6 @@ class MercRegister extends Controller
         $params = array_merge($params,$this->mercInfo($config));
         $params = array_merge($params,[
             'service' => 'MercRegister',
-            'secretKey' => $this->signature([],$this->password),
-            'clientIP' => $this->getClientIP(),
         ]);
 
         $respones = $this->request($params);

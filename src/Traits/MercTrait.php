@@ -79,6 +79,7 @@ trait MercTrait
             'stlLst' => json_encode($stlLst,JSON_UNESCAPED_UNICODE),
             'feeChargeFlg' => 1,
             'certPhotoImg' => '',
+            'secretKey' => $this->signature([],$this->password),
         ];
 
     }
