@@ -33,7 +33,7 @@ class MercRegister extends Controller
 
         //数据存储
         if(0){
-            $config->paymax_send_log_id = 1;
+            $config->send_log_id = 1;
             $config->save();
         }
 
