@@ -27,13 +27,14 @@ class MercUpdate extends Controller
             'service' => 'UpdateMercInfo',
             'outMerchantId' => $config['sub_merchant_id'],
             'secretKey' => $this->signature([],$this->password),
+            'clientIP' => $this->getClientIP(),
         ]);
 
         $respones = $this->request($params);
 
         //数据存储
         if(0){
-            $config->paymax_send_log_id = 1;
+            $config->send_log_id = 1;
             $config->save();
         }
 
