@@ -36,8 +36,8 @@ trait MercTrait
                 'enterpriseOwnerIdNo' => $this->encrypt($params['enterprise_owner_id_no']),
                 'enterpriseOwnerIdEffDt' => $params['enterprise_owner_id_eff_dt'] ?? '',
                 'enterpriseOwnerIdExpDt' => $params['enterprise_owner_id_exp_dt'] ?? '',
-//                'ownImg1' => $params['corporation_certificate_front_id'] ?? '',
-//                'othImg2' => $params['corporation_certificate_back_id'] ?? '',
+                'ownImg1' => '',
+                'othImg2' => '',
             ]
         ];
 
@@ -60,7 +60,6 @@ trait MercTrait
 
         return [
             'reqTime' => date('YmdHis'),
-//            'sub_merchant_id' => $params['sub_merchant_id'] ?? '',
             'merchantName' => $params['sub_merchant_name'] ?? '',
             'merchantShortName' => $params['sub_merchant_short_name'] ?? '',
             'mercIdEffDt' => $params['merc_id_eff_dt'] ?? '',
@@ -79,7 +78,7 @@ trait MercTrait
             'owner' => json_encode($owner,JSON_UNESCAPED_UNICODE),
             'stlLst' => json_encode($stlLst,JSON_UNESCAPED_UNICODE),
             'feeChargeFlg' => 1,
-//            'certPhotoImg' => $params['cert_photo_img_id'] ?? '',
+            'certPhotoImg' => '',
         ];
 
     }
