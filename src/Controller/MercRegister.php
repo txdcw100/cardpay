@@ -22,7 +22,6 @@ class MercRegister extends Controller
             throw new \Exception('has sub_merchant_id');
         }
 
-        // TODO: Implement vendor() method.
         $params = array_merge($params,$this->mercInfo($config));
         $params = array_merge($params,[
             'service' => 'MercRegister',
