@@ -191,7 +191,7 @@ abstract class Controller implements Builder
         $pubKey = $cert['cert'];
         $pubKey = openssl_get_publickey($pubKey);
         $string = iconv("UTF-8", "gbk//TRANSLIT", $string);
-        openssl_public_encrypt($string, $sign, $pubKey,OPENSSL_ALGO_SHA256);
+        openssl_public_encrypt($string, $sign, $pubKey);
         $sign = strtoupper(bin2hex($sign));
         return $sign;
     }
