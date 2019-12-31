@@ -172,7 +172,7 @@ abstract class Controller implements Builder
         openssl_pkcs12_read(file_get_contents($p12CertPath), $cert, $p12CertPass);
         $priKey = $cert['pkey'];
         $priKey = openssl_get_privatekey($priKey);
-        $originStr = iconv("UTF-8", "gbk//TRANSLIT", $originStr);
+//        $originStr = iconv("UTF-8", "gbk//TRANSLIT", $originStr);
         openssl_sign($originStr, $sign, $priKey, OPENSSL_ALGO_SHA256);
         $sign = strtoupper(bin2hex($sign));
         return $sign;
