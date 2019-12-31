@@ -53,7 +53,7 @@ trait OrderTrait
                 'detailOrderId' => $orderId,
                 'orderAmt' => '' . $amount,
                 'shareFee' => '0',
-                'rcvMerchantId' => $this->config['merchant_id'],
+                'rcvMerchantId' => $this->config['sub_merchant_id'] ?? $this->config['merchant_id'],
                 'rcvMerchantIdName' => '',
                 'productName' => $body,
                 'productId' => '',
