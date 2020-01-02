@@ -95,7 +95,7 @@ abstract class Controller implements Builder
         $params = array_merge($this->getCommonParams(), $params);
         $params['merchantSign'] = $this->signature($params);
         $url = $this->getApiUrl();
-        $responseData = $this->post($url, json_encode($params,JSON_UNESCAPED_UNICODE));
+        $responseData = $this->post($url, json_encode($params));
         $response = $this->parseResponse($responseData);
         $this->logs($params,$responseData);
         return $response;
