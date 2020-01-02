@@ -172,30 +172,11 @@ abstract class Controller implements Builder
         openssl_pkcs12_read(file_get_contents($p12CertPath), $cert, $p12CertPass);
         $priKey = $cert['pkey'];
         $priKey = openssl_get_privatekey($priKey);
-//        $originStr = iconv("UTF-8", "gbk//TRANSLIT", $originStr);
+        $originStr = iconv("UTF-8", "gbk//TRANSLIT", $originStr);
         openssl_sign($originStr, $sign, $priKey, OPENSSL_ALGO_SHA256);
         $sign = strtoupper(bin2hex($sign));
         return $sign;
     }
-
-    /**
-     * 加密（共钥）
-     * @param array $params
-     * @return string
-     */
-    public function signpublic(string $string)
-    {
-        $p12CertPath = $this->config['key_rsa_path'];
-        $p12CertPass = $this->config['key_rsa_pass'];
-        openssl_pkcs12_read(file_get_contents($p12CertPath), $cert, $p12CertPass);
-        $pubKey = $cert['cert'];
-        $pubKey = openssl_get_publickey($pubKey);
-        $string = iconv("UTF-8", "gbk//TRANSLIT", $string);
-        openssl_public_encrypt($string, $sign, $pubKey);
-        $sign = strtoupper(bin2hex($sign));
-        return $sign;
-    }
-
 
     /**
      * 处理待签名参数
