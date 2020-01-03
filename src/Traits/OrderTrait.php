@@ -50,7 +50,7 @@ trait OrderTrait
         $orderDetail = [
             [
                 'orderSeqNo' => '001',
-                'detailOrderId' => $orderId,
+                'detailOrderId' => $orderId.'S',
                 'orderAmt' => '' . $amount,
                 'shareFee' => '0',
                 'rcvMerchantId' => $this->config['sub_merchant_id'] ?? $this->config['merchant_id'],

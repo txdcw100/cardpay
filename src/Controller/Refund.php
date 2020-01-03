@@ -12,16 +12,20 @@ class Refund extends Controller
 {
     public function vendor(array $params)
     {
-        $refundOrderId = $this->buildOrder();
-        $params = array_merge($params,[
-            'service' => 'EntOrderDetailRefund',
-            'refundOrderId' => $refundOrderId,
-            'orderId' => $params['orderId'],
-            'refundTolAmount' => $params['amount'],
-        ]);
 
-        return array_merge($this->request($params),[
-            'refundOrderId' => $refundOrderId,
+        $detail = [
+            [
+                'detailOrderId' => $params['translog_serial'].'S',
+                'detailRefundAmount' => (string)$params['amount'],
+                'rcvMerchantId' => '872100003015000',
+            ]
+        ];
+        return $this->request([
+            'service' => 'EntOrderDetailRefund',
+            'refundOrderId' => $params['serial'],
+            'orderId' => $params['translog_serial'],
+            'refundTolAmount' => (string)$params['amount'],
+            'refundDetail' => json_encode($detail, JSON_UNESCAPED_UNICODE)
         ]);
     }
 
