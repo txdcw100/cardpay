@@ -12,12 +12,11 @@ class Refund extends Controller
 {
     public function vendor(array $params)
     {
-
         $detail = [
             [
                 'detailOrderId' => $params['translog_serial'].'S',
                 'detailRefundAmount' => (string)$params['amount'],
-                'rcvMerchantId' => '872100003015000',
+                'rcvMerchantId' => $this->config['sub_merchant_id'],
             ]
         ];
         return $this->request([
