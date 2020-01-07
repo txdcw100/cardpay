@@ -28,4 +28,14 @@ class Refund extends Controller
         ]);
     }
 
+    public function check(array $params){
+
+        $params = [
+            'service' => 'RefundDetailSeach',
+            'refundOrderId' => $params['orderId']
+        ];
+
+        return $this->request($params);
+    }
+
 }
