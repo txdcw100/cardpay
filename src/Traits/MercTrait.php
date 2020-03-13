@@ -38,8 +38,8 @@ trait MercTrait
                 'enterpriseOwnerIdNo' => $this->encrypt($params['enterprise_owner_id_no'],$password),
                 'enterpriseOwnerIdEffDt' => $params['enterprise_owner_id_eff_dt'] ?? '',
                 'enterpriseOwnerIdExpDt' => $params['enterprise_owner_id_exp_dt'] ?? '',
-                'ownImg1' => '',
-                'othImg2' => '',
+                'ownImg1' => 'front.png',
+                'othImg2' => 'back.png',
             ]
         ];
 
@@ -52,11 +52,17 @@ trait MercTrait
                 'lBnkNo' => $params['i_bnk_no'] ?? '',
                 'stlOac' => $this->encrypt($params['stl_oac'],$password),
                 'bnkOpnName' => $params['bnk_opn_name'] ?? '',
+                'opnBnkProv' => $params['province'] ?? '',
+                'opnBnkCity' => $params['city'] ?? '',
                 'stlCls' => "2",
                 'stlPerd' => "0",
                 'pasStlFlg' => "0",
                 'minRtnAmt' => "0",
                 'stlTrfDays' => "1",
+                'stlDay' => "1",
+                'nextStlDt' => date('Ymd'),
+                'stlBegAmt' => "0",
+                'minRtnAmt' => "0",
             ]
         ];
 
@@ -80,8 +86,8 @@ trait MercTrait
             'owner' => json_encode($owner,JSON_UNESCAPED_UNICODE),
             'stlLst' => json_encode($stlLst,JSON_UNESCAPED_UNICODE),
             'feeChargeFlg' => "1",
-            'certPhotoImg' => '',
-            'secretKey' => $this->signature([],$password),
+            'certPhotoImg' => 'certPhoto.png',
+            'secretKey' => $this->signencrypt($password),
         ];
 
     }

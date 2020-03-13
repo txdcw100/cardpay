@@ -95,6 +95,7 @@ abstract class Controller implements Builder
         $params = array_merge($this->getCommonParams(), $params);
         $params['merchantSign'] = $this->signature($params);
         $url = $this->getApiUrl();
+        info($params);
         $responseData = $this->post($url, json_encode($params));
         $response = $this->parseResponse($responseData);
         $this->logs($params,$responseData);
@@ -164,9 +165,9 @@ abstract class Controller implements Builder
      * @param array $params
      * @return string
      */
-    public function signature(array $params,string $string = null)
+    public function signature(array $params)
     {
-        $originStr = $string ?: $this->dealSianParams($params);
+        $originStr = $this->dealSianParams($params);
         $p12CertPath = $this->config['key_rsa_path'];
         $p12CertPass = $this->config['key_rsa_pass'];
         openssl_pkcs12_read(file_get_contents($p12CertPath), $cert, $p12CertPass);
@@ -175,6 +176,17 @@ abstract class Controller implements Builder
         $originStr = iconv("UTF-8", "gbk//TRANSLIT", $originStr);
         openssl_sign($originStr, $sign, $priKey, OPENSSL_ALGO_SHA256);
         $sign = strtoupper(bin2hex($sign));
+        return $sign;
+    }
+
+    public function signencrypt(string $string){
+        $p12CertPath = $this->config['key_rsa_path'];
+        $p12CertPass = $this->config['key_rsa_pass'];
+        openssl_pkcs12_read(file_get_contents($p12CertPath), $cert, $p12CertPass);
+        $priKey = $cert['pkey'];
+        $priKey = openssl_get_privatekey($priKey);
+        openssl_private_encrypt($string, $sign, $priKey);
+        $sign = base64_encode($sign);
         return $sign;
     }
 

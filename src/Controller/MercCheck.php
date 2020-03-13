@@ -24,9 +24,9 @@ class MercCheck extends Controller
             'reqTime' => date('YmdHis'),
             'orgiRequestId' => $config['send_log_id'],
         ]);
-
+info($params);
         $respones = $this->request($params);
-
+info($respones);
         return $respones;
     }
 }
