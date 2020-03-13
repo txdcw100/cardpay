@@ -12,10 +12,12 @@ trait MercTrait
 {
     public function mercInfo($params){
 
+        $password = '1234567890123456';
+
         $administrator = [
             [
                 'usrOprNm' => $params['usr_opr_nm'] ?? '',
-                'usrOprMbl' => $this->encrypt($params['usr_opr_mbl']),
+                'usrOprMbl' => $this->encrypt($params['usr_opr_mbl'],$password),
                 'usrOprEmail' => $params['usr_opr_email'] ?? '',
                 'mercCertTyp' => '1-RSA',
             ]
@@ -25,7 +27,7 @@ trait MercTrait
             [
                 'contactType' => $params['contact_type'] ?? '',
                 'contactName' => $params['contact_name'] ?? '',
-                'contactMobile' => $this->encrypt($params['contact_mobile']),
+                'contactMobile' => $this->encrypt($params['contact_mobile'],$password),
             ]
         ];
 
@@ -33,7 +35,7 @@ trait MercTrait
             [
                 'enterpriseOwner' => $params['enterprise_owner'] ?? '',
                 'enterpriseOwnerIdType' => $params['enterprise_owner_id_type'] ?? '',
-                'enterpriseOwnerIdNo' => $this->encrypt($params['enterprise_owner_id_no']),
+                'enterpriseOwnerIdNo' => $this->encrypt($params['enterprise_owner_id_no'],$password),
                 'enterpriseOwnerIdEffDt' => $params['enterprise_owner_id_eff_dt'] ?? '',
                 'enterpriseOwnerIdExpDt' => $params['enterprise_owner_id_exp_dt'] ?? '',
                 'ownImg1' => '',
@@ -48,7 +50,7 @@ trait MercTrait
                 'bankName' => $params['bank_name'] ?? '',
                 'stlBankName' => $params['stl_bank_name'] ?? '',
                 'lBnkNo' => $params['i_bnk_no'] ?? '',
-                'stlOac' => $this->encrypt($params['stl_oac']),
+                'stlOac' => $this->encrypt($params['stl_oac'],$password),
                 'bnkOpnName' => $params['bnk_opn_name'] ?? '',
                 'stlCls' => 2,
                 'stlPerd' => 0,
@@ -66,7 +68,7 @@ trait MercTrait
             'mercIdExpDt' => $params['merc_id_exp_dt'] ?? '',
             'regAddress' => $params['reg_address'] ?? '',
             'merchantIdType' => '01',
-            'merchantIdNo' => $this->encrypt($params['merchant_id_no']),
+            'merchantIdNo' => $this->encrypt($params['merchant_id_no'],$password),
             'province' => $params['province'] ?? '',
             'city' => $params['city'] ?? '',
             'region' => $params['region'] ?? '',
@@ -79,7 +81,7 @@ trait MercTrait
             'stlLst' => json_encode($stlLst,JSON_UNESCAPED_UNICODE),
             'feeChargeFlg' => 1,
             'certPhotoImg' => '',
-            'secretKey' => $this->signature([],$this->password),
+            'secretKey' => $this->signature([],$password),
         ];
 
     }

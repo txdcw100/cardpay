@@ -30,12 +30,6 @@ class MercUpdate extends Controller
 
         $respones = $this->request($params);
 
-        //数据存储
-        if(0){
-            $config->send_log_id = 1;
-            $config->save();
-        }
-
         return $respones;
     }
 }
