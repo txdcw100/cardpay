@@ -45,18 +45,18 @@ trait MercTrait
 
         $stlLst = [
             [
-                'stlSign' => 0,
+                'stlSign' => "0",
                 'selfStlFlg' => 'Y',
                 'bankName' => $params['bank_name'] ?? '',
                 'stlBankName' => $params['stl_bank_name'] ?? '',
                 'lBnkNo' => $params['i_bnk_no'] ?? '',
                 'stlOac' => $this->encrypt($params['stl_oac'],$password),
                 'bnkOpnName' => $params['bnk_opn_name'] ?? '',
-                'stlCls' => 2,
-                'stlPerd' => 0,
-                'pasStlFlg' => 0,
-                'minRtnAmt' => 0,
-                'stlTrfDays' => 1,
+                'stlCls' => "2",
+                'stlPerd' => "0",
+                'pasStlFlg' => "0",
+                'minRtnAmt' => "0",
+                'stlTrfDays' => "1",
             ]
         ];
 
@@ -74,12 +74,12 @@ trait MercTrait
             'region' => $params['region'] ?? '',
             'mccCd' => $params['mcc_cd'] ?? '',
             'mccSubCd' => $params['mcc_sub_cd'] ?? '',
-            'mercAttr' => $params['merc_attr'] ?? '',
+            'mercAttr' => (string)$params['merc_attr'] ?? '',
             'administrator' => json_encode($administrator,JSON_UNESCAPED_UNICODE),
             'contact' => json_encode($contact,JSON_UNESCAPED_UNICODE),
             'owner' => json_encode($owner,JSON_UNESCAPED_UNICODE),
             'stlLst' => json_encode($stlLst,JSON_UNESCAPED_UNICODE),
-            'feeChargeFlg' => 1,
+            'feeChargeFlg' => "1",
             'certPhotoImg' => '',
             'secretKey' => $this->signature([],$password),
         ];

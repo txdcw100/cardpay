@@ -27,9 +27,9 @@ class MercUpdate extends Controller
             'service' => 'UpdateMercInfo',
             'outMerchantId' => $config['sub_merchant_id'],
         ]);
-
+info($params);
         $respones = $this->request($params);
-
+info($respones);
         return $respones;
     }
 }
