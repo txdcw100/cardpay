@@ -28,8 +28,8 @@ class MercUpdate extends Controller
             'outMerchantId' => $config['sub_merchant_id'],
         ]);
 
-        $respones = $this->request($params);
+        list($respones,$backParams) = $this->request($params,true);
 
-        return $respones;
+        return [$respones,$backParams];
     }
 }
