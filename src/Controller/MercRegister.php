@@ -27,8 +27,8 @@ class MercRegister extends Controller
             'service' => 'MercRegister',
         ]);
 
-        $respones = $this->request($params);
+        list($respones,$backParams) = $this->request($params,true);
 
-        return $respones;
+        return [$respones,$backParams];
     }
 }

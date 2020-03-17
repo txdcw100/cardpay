@@ -89,17 +89,16 @@ abstract class Controller implements Builder
      * @param array $params
      * @return array
      */
-    public function request(array $params)
+    public function request(array $params,$needParams = false)
     {
         // 合并公共请求参数
         $params = array_merge($this->getCommonParams(), $params);
         $params['merchantSign'] = $this->signature($params);
         $url = $this->getApiUrl();
-        info($params);
         $responseData = $this->post($url, json_encode($params));
         $response = $this->parseResponse($responseData);
         $this->logs($params,$responseData);
-        return $response;
+        return $needParams ? [$response,$params] : $response;
     }
 
     /**
