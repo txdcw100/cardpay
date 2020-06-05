@@ -138,8 +138,12 @@ abstract class Controller implements Builder
         if (curl_errno($curl)) {
             return null;
         }
-        $data = iconv("gbk", "UTF-8//TRANSLIT", $data);
-        $responseData = json_decode($data, true);
+		try{
+			$data = iconv("gbk", "UTF-8//TRANSLIT", $data);
+		}catch(\Exception $e){
+
+		}
+		$responseData = json_decode($data, true);
         return $responseData;
     }
 
