@@ -12,7 +12,7 @@ trait MercTrait
 {
     public function mercInfo($params){
 
-        $password = '1234567890123456';
+        $password = substr(md5(time()),-16);
 
         $administrator = [
             [
