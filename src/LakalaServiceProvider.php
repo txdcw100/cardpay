@@ -24,9 +24,9 @@ class LakalaServiceProvider extends ServiceProvider
             __DIR__.'/../config/lakala.php' => config_path('lakala.php'), // 发布配置文件到 laravel 的config 下
         ], 'config');
 
-        $this->publishes([
-            __DIR__.'/../database/migrations/create_lakala_tables.php.stub' => $this->app->databasePath()."/migrations/".date('Y_m_d_His')."_create_lakala_tables.php",
-        ], 'migrations');
+//        $this->publishes([
+//            __DIR__.'/../database/migrations/create_lakala_tables.php.stub' => $this->app->databasePath()."/migrations/".date('Y_m_d_His')."_create_lakala_tables.php",
+//        ], 'migrations');
     }
 
     /**

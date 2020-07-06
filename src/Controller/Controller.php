@@ -97,7 +97,7 @@ abstract class Controller implements Builder
         $url = $this->getApiUrl();
         $responseData = $this->post($url, json_encode($params));
         $response = $this->parseResponse($responseData);
-        $this->logs($params,$responseData);
+//        $this->logs($params,$responseData);
         return $needParams ? [$response,$params] : $response;
     }
 
