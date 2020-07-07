@@ -97,7 +97,7 @@ abstract class Controller implements Builder
         $url = $this->getApiUrl();
         $responseData = $this->post($url, json_encode($params));
         $response = $this->parseResponse($responseData);
-//        $this->logs($params,$responseData);
+        $this->logs($params,$responseData);
         return $needParams ? [$response,$params] : $response;
     }
 
@@ -109,7 +109,7 @@ abstract class Controller implements Builder
     public function logs($params,$response){
 
         LakalaLog::create([
-            'merchant_id' => $params['merchantId'] ?? '',
+            'sub_merchant_id' => $params['merchantId'] ?? '',
             'request_id' => $params['requestId'] ?? '',
             'type' => $params['service'] ?? '',
             'post' => json_encode($params),
