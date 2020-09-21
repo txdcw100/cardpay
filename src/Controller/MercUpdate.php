@@ -30,7 +30,7 @@ class MercUpdate extends Controller
 
         list($respones,$backParams) = $this->request($params,true);
 
-		$config->send_log_id = $backParams['requestId'] ?? '';
+		$config->request_id = $backParams['requestId'] ?? '';
 		$config->save();
 
         return [$respones,$backParams];
