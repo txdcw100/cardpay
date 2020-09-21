@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class LakalaLog extends Model
 {
-    protected $fillable = ['merchant_id','request_id','type','post','result'];
+	protected $guarded = [];
 
     public function __construct(array $attributes = [])
     {

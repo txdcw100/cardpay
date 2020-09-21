@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class LakalaConfig extends Model
 {
+	protected $guarded = [];
+
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
