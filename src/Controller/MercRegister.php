@@ -30,7 +30,7 @@ class MercRegister extends Controller
         list($respones,$backParams) = $this->request($params,true);
 
 		$config->sub_merchant_id = $respones['outMerchantId'] ?? '';
-		$config->request_id = $backParams['requestId'] ?? '';
+		$config->payment_record_id = $backParams['requestId'] ?? '';
 		$config->save();
 
         return [$respones,$backParams];

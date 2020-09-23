@@ -22,7 +22,7 @@ class MercCheck extends Controller
         $params = array_merge($params,[
             'service' => 'MercRegisterSerch',
             'reqTime' => date('YmdHis'),
-            'orgiRequestId' => $config['request_id'],
+            'orgiRequestId' => $config['payment_record_id'],
         ]);
 
         $respones = $this->request($params);
