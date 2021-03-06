@@ -54,7 +54,7 @@ trait MercTrait
                 'bnkOpnName' => $params['bnk_opn_name'] ?? '',
                 'opnBnkProv' => $params['province'] ?? '',
                 'opnBnkCity' => $params['city'] ?? '',
-                'stlCls' => "2",
+                'stlCls' => "1",
                 'stlPerd' => "0",
                 'pasStlFlg' => "0",
                 'minRtnAmt' => "0",
