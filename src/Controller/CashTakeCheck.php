@@ -17,7 +17,7 @@ class CashTakeCheck extends Controller
     {
 
         $params = array_merge($params,[
-            'service' => 'withdrawalQry',
+            'service' => 'WithdrawalQry',
         ]);
 
         $respones = $this->request($params);
