@@ -17,7 +17,7 @@ class CashTake extends Controller
     {
 
         $params = array_merge($params,[
-            'service' => 'WithdrawalCommit',
+            'service' => 'withdrawalCommit',
         ]);
 
         $respones = $this->request($params);
